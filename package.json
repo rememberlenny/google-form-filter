@@ -1,0 +1,26 @@
+{
+  "name": "google-form-filter",
+  "version": "0.1.0",
+  "description": "Filter Google Form pages to control which questions are visible",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rememberlenny/google-form-filter.git"
+  },
+  "keywords": [
+    "google",
+    "form",
+    "drive",
+    "filter",
+    "survey"
+  ],
+  "author": "Leonard Kiyoshi Bogdonoff",
+  "license": "CC",
+  "bugs": {
+    "url": "https://github.com/rememberlenny/google-form-filter/issues"
+  },
+  "homepage": "https://github.com/rememberlenny/google-form-filter"
+}
