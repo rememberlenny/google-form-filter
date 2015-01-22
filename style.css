@@ -3,9 +3,11 @@
 }
 
 ol div.ss-form-question{
-  display: none;
+  /*display: none;*/
+  opacity:.3;
 }
 
 ol div.ss-form-question.visible{
-  display: block;
+  /*display: block;*/
+  opacity:1;
 }

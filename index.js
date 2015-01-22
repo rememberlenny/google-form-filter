@@ -27,7 +27,6 @@
    */
   gff.initialize = function(){
     gff.getGoogleForm()
-    gff.getDriveData();
   }
 
   gff.getGoogleForm = function(){
@@ -40,21 +39,24 @@
     });
 
     $.get(
-        window.form,
-        function(response) {
-            $("body").html(response);
-    });
+      window.form,
+      function(response) {
+          console.log(response);
+          window.red = response;
+          // $("body").html(response);
+          gff.kickOff();
+      }
+    );
   }
 
   /**
    * Callback after Drive data is accessed
    */
   gff.kickOff = function(){
-    assignUserFieldFromUrl();
+    console.log('Kick off running');
     gff.config.categories = window.categories;
     gff.config.userValue = gff.getUserFieldFromUrl();
     gff.assignUserField();
-    gff.getDriveData();
     gff.getUsersRow();
     gff.identiyFilters();
   }
@@ -77,6 +79,7 @@
   gff.saveDriveData = function(data, tabletop){
     gff.config.driveData = data;
     gff.kickOff();
+    console.log(data);
   }
 
   /**
@@ -137,7 +140,7 @@
    * Get the user value from URL
    */
   gff.getUserFieldFromUrl = function(){
-    var paramValue = getParameterByName(gff.config.userParamName);
+    var paramValue = gff.getParameterByName(gff.config.userParamName);
     gff.config.userValue = paramValue;
   }
 
