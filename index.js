@@ -13,7 +13,7 @@
     "categories":             window.categories,
     "questions":              [],
     "userDataRow":            '',
-    "userDriveUrl":           'http://',
+    "userDriveUrl":           'https://docs.google.com/spreadsheets/d/1v7h_RER151mqmJiA03hrGo9UhycYI058Ct-xSXM9-4I/pubhtml?gid=0&single=true',
     "filterColumnName":       'Selection',
     "filterColumnDelimiter":  ',',          // Graffiti, Photography
     "userColumnName":         'Email',
@@ -26,6 +26,11 @@
    * First function to run
    */
   gff.initialize = function(){
+    gff.getGoogleForm()
+    gff.getDriveData();
+  }
+
+  gff.getGoogleForm = function(){
     $.ajaxPrefilter(function(options) {
       if(options.crossDomain && jQuery.support.cors) {
         var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
@@ -39,7 +44,6 @@
         function(response) {
             $("body").html(response);
     });
-    gff.getDriveData();
   }
 
   /**
