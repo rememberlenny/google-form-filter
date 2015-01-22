@@ -1,4 +1,4 @@
-(function(Tabletop){
+(function(Tabletop, jQuery){
 
   /**
    * gff App object
@@ -10,12 +10,7 @@
    * @type {Object}
    */
   gff.config = {
-    "categories":             {
-      // "Abstract":     [1,2],
-      // "Graffiti":     [3,4],
-      // "Photography":  [5,6],
-      // "Classic":      [7,8]
-    },
+    "categories":             window.categories,
     "questions":              [],
     "userDataRow":            '',
     "userDriveUrl":           'http://',
@@ -31,6 +26,19 @@
    * First function to run
    */
   gff.initialize = function(){
+    $.ajaxPrefilter(function(options) {
+      if(options.crossDomain && jQuery.support.cors) {
+        var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+        options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+        //options.url = "http://cors.corsproxy.io/url=" + options.url;
+      }
+    });
+
+    $.get(
+        window.form,
+        function(response) {
+            $("body").html(response);
+    });
     gff.getDriveData();
   }
 
@@ -169,4 +177,4 @@
 
   gff.initialize();
 
-})(Tabletop);
+})(Tabletop, jQuery);

@@ -1,3 +1,7 @@
+.hidden{
+  display: none;
+}
+
 ol div.ss-form-question{
   display: none;
 }
